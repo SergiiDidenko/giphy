@@ -1,0 +1,20 @@
+<div class="container">
+  <input type="text" [formControl]="searchControl" placeholder="Поиск GIF..." />
+  <h2 class="font-size-xl mb-3">Популярні GIF</h2>
+
+  <div class="d-flex gap-15">
+    <div class="d-flex gap-15 flex-column flex" *ngFor="let column of columns">
+      <div *ngFor="let gif of column" class="gif-item">
+        <a [routerLink]="['/gifs', gif.id]">
+          <div class="gif-placeholder d-flex align-center justify-center" >
+            <img [src]="gif.images.original.url"
+                 [alt]="gif.title"
+                 loading="lazy"
+                 (load)="onImageLoad($event)"
+                 class="gif-image hidden" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

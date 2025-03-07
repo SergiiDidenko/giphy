@@ -1,0 +1,26 @@
+<div class="gif-details-container">
+  <div class="d-flex align-center gap-15 mb-3 justify-center">
+    <div class="d-flex align-center" *ngIf="gif.user">
+      <img
+        [src]="gif.user.avatar_url || 'assets/default-avatar.png'"
+        class="avatar"
+      />
+      <div >
+        <h3 class="m-0 font-size-l">{{ gif.user.display_name || "Unknown" }}</h3>
+        <p class="color-monochrome-0">{{ gif.user.username || "anonymous" }}</p>
+        <p class="font-size-s color-monochrome-69">
+          {{ gif.user.description || "No description available" }}
+        </p>
+      </div>
+    </div>
+    
+    <div class="d-flex align-center gap-15">
+      <button class="btn" (click)="copyLink()">Copy Link</button>
+      <button class="btn" (click)="downloadGif()">Download</button>
+    </div>
+  </div>
+
+  <div class="d-flex justify-center" *ngIf="gif.images && gif.images.original">
+    <img [src]="gif.images.original.url" [alt]="gif.title" class="gif-image" />
+  </div>
+</div>

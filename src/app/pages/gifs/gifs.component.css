@@ -1,0 +1,16 @@
+.gif-item {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gif-item:hover {
+  transform: scale(1.05);
+}
+
+.gif-placeholder {
+  background-color: #f0f0f0;
+
+  position: relative;
+  overflow: hidden;
+}
